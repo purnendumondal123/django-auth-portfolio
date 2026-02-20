@@ -1,0 +1,66 @@
+{% extends "base1.html" %}
+{% load static %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+    <section onclick="hidesidebar()">
+        <div>
+            <div class="container">
+                <div class="fSectionrow row row-col-md-2 mt-3">
+                    <div class="fcol col-md-6 text-white">
+                        <div>
+                            <ul>
+                                <li>Name : <span>Purnendu Mondal</span></li>
+                                <li>Father's name : <span>Chitta Mondal</span></li>
+                                <li>Gender : <span>Male</span></li>
+                                <li>Date of Birth : <span>11/11/2000</span></li>
+                            </ul>
+                            <h3>Schooling:- </h3>
+                            <table>
+                                <tr>
+                                    <th>Name of Exam</th>
+                                    <th>Board</th>
+                                    <th>Passing year</th>
+                                </tr>
+                                <tr>
+                                    <td>Secondary</td>
+                                    <td>WBBSE</td>
+                                    <td>2016</td>
+                                </tr>
+                                <tr>
+                                    <td>Higher Secondary</td>
+                                    <td>WBSCTVE</td>
+                                    <td>2018</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="scol section-right col-md-6">
+                        <img src="{% static 'protfo_css/img/mypicedit.jpg' %}" width="60%" height="100%">
+                    </div>
+                </div>
+                <section class="about-section2 col-12 col-lg-12 my-3">
+                    <h3>Technical Education:- </h3>
+                    <table>
+                        <tr>
+                            <th>College Name</th>
+                            <th>Stream in Polytechnic</th>
+                            <th>Passing Year</th>
+                            <th>Percentage</th>
+                        </tr>
+                        <tr>
+                            <td>Budge Budge Instute of Technology</td>
+                            <td>Electronics & Telecommunication</td>
+                            <td>2021</td>
+                            <td>76%</td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %} 

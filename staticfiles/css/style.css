@@ -1,0 +1,79 @@
+    body {
+        background-image: url(img/pexels-pixabay-268533.jpg);
+        background-size:cover;
+        /* background-repeat: no-repeat; */
+    }
+    /* .center{
+        margin: auto;
+    } */
+    .formbox {
+        color: white;
+        width: 300px;
+        /* height: 330px; */
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        margin: auto;
+        position: relative;
+        top: 20px;
+    }
+    .formbox label {
+        margin: 5px 0;
+    }
+    /* input[type="password"] ,input[type="text"], input[type='email']{
+        color: white;
+    } */
+    button {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        padding: 5px 0;
+    }
+    input {
+        width: 70%;
+        padding: 8px;
+        background-color: rgba(50, 48, 48, 0.5);
+        border: 0px;
+        color: white;
+        border-radius: 2px;
+        display: block;
+        width: 100%;
+        background: #3d3939;
+        color: white;
+    }
+    .formbox form {
+        margin: 20px;
+    }
+    .formbox h1 {
+        padding: 20px 0 0 0;
+        text-align: center;
+    }
+    .formbox a {
+        color: white;
+        text-decoration: underline;
+    }
+    .formbox a:hover{
+        color: rgb(134, 134, 243);
+    }
+
+
+    form .anchor {
+        padding-bottom: 30px;
+    }
+
+
+    .passmsg{
+        font-weight: bold;
+        display: none;
+        margin-bottom: 0;
+    }
+
+    .button{
+        border: white solid 3px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        background-color: white;
+    }

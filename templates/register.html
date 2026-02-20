@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Registration side {% endblock %}
+
+{% block content %}
+
+            <form method="post" action="">
+                {% csrf_token %}
+                <h1>Signup Here</h1>
+
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" value='{{name}}' placeholder="Enter Name">
+            
+                <p class='passmsg text-{{color}}' style='display:{{disp_email}};'>{{msg}}</p>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value='{{email}}' placeholder="Email">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password">
+                
+                <p class="passmsg text-{{color}}" style='display: {{disp_pass}};'>{{pasmsg}}</P>
+
+                <label for="conf-password">Confrom Password</label>
+                <input type="password" id="conf-password" name="conf-password" placeholder="Confrom Password">
+
+                <button type='submit' class='btn btn-primary w-50 mt-2 margin:auto'>Register</button>
+                <div class="anchor">
+                    <a href="{% url 'login' %}">I have already account</a>
+                </div>
+                
+            </form>
+
+{% endblock %}

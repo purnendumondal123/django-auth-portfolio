@@ -1,0 +1,80 @@
+    <footer>
+        <div class="footer">
+            <div class="footer-right">
+                <h3>Purnendu Developer Portfolio</h3>
+            </div>
+            <div class="footer-first">
+                <ul>
+                    <a href="{% url 'home' %}">
+                        <li>Home</li>
+                    </a>
+                    <a href="{% url 'about' %}">
+                        <li>About</li>
+                    </a>
+                    <a href="{% url 'contact' %}">
+                        <li>Contact us</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="footer-second">
+                <ul>
+                    <a href="{% url 'home' %}">
+                        <li>Home</li>
+                    </a>
+                    <a href="{% url 'about' %}">
+                        <li>About</li>
+                    </a>
+                    <a href="{% url 'contact' %}">
+                        <li>Contact us</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="footer-third">
+                <ul>
+                    <a href="{% url 'home' %}">
+                        <li>Home</li>
+                    </a>
+                    <a href="{% url 'about' %}">
+                        <li>About</li>
+                    </a>
+                    <a href="{% url 'contact' %}">
+                        <li>Contact us</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center">
+            Copyright &copy; purnenduportfolio.com | All rights reserved
+        </div>
+    </footer>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var typed = new Typed('#element', {
+        strings: ['Web Developer', 'Programmer', 'Tech Enthusiast'],
+        typeSpeed: 100,
+        backSpeed: 50,
+        loop: true
+      });
+    });
+  </script>
+
+<script>
+    function showSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.style.display = 'flex';
+    }
+    function hidesidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.style.display = 'none';
+
+    }
+</script>
+
+</html>

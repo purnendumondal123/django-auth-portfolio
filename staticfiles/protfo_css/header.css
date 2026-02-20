@@ -1,0 +1,142 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgba(11, 11, 54, 0.925);
+    color: white;
+}
+
+nav .nv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100%;
+    height: 50px;
+    background-color: rgb(0, 0, 65);
+    /* box-shadow: 0px 10px 10xp rgba(201, 38, 38,0.5); */
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav .left {
+    height: 50%;
+    color: black;
+    margin: 0 50px;
+    display: flex;
+}
+
+.left .leftnonport {
+    display: none;
+}
+
+/* .leftnonport a:hover{
+    background-color: yellow;
+    color: blue;
+} */
+
+.left .leftportfo {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav .right {
+    height: 50%;
+    color: white;
+    margin: 0 50px;
+    font-weight: bold;
+}
+
+nav li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: rgb(200, 144, 244);
+    color: black;
+}
+
+nav .active a{
+    background-color: skyblue;
+    color: black;
+}
+
+.sidebar {
+    /* display: none; */
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 200px;
+    height: 300px;
+    color: red;
+    flex-direction: column;
+    background-color: gray;
+    backdrop-filter: blur(5px);
+    align-items: center;
+    padding: 10px 0;
+    display: none;
+    z-index: 1000;
+}
+
+.sidebar .logo{
+    width: 228px;
+}
+
+.sidebar .logout a{
+    width: 250px;
+    /* margin: 0; */
+    padding: 7px 34.5%;
+    height: 50px;
+
+}
+
+.sidebar li {
+    margin: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar a {
+    background-color: rgb(56, 243, 14);
+    border-radius: 0%;
+    width: 200px;
+    padding-left: 38%;
+    padding-right: 40%;
+    font-weight: bold;
+    color: black;
+}
+
+.sidebar .bar3chi {
+    padding-left: 36%;
+    padding-right: 36%;
+}
+
+@media(max-width:767px) {
+    nav .right {
+        display: none;
+    }
+
+    .left .leftnonport {
+        display: block;
+    }
+
+    nav .left {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+

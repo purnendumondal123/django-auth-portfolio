@@ -1,0 +1,34 @@
+{% extends "base1.html" %}
+{% load static %}
+
+{% block title %}Contact{% endblock %}
+
+
+{% block content %}
+
+    <main>
+        <section class="container"  onclick="hidesidebar()">
+            <div class="contact col-12 my-4">
+                <ul>
+                    <h4>Name : <span class="text-warning">Purnendu Mondal</span></h4>
+                    <li>Phone No : <span style="color: rgba(226, 10, 255, 0.957); font-size: 17px;"
+                            class="fw-bold">9635433390</span></li>
+                    <li>Email Id : <span class="text-primary fs-5">purnenducoder@gmail.com</span></li>
+                    {% comment %} <li>Date of Birth : <span>11/11/2000</span></li> {% endcomment %}
+                    <div>
+                        <h3>Address :</h3>
+                        <ul class="address">
+                            <li class="text-start">Country : <span>India</span></li>
+                            <li class="text-start">State : <span>West Bengal</span></li>
+                            <li class="text-start">Dist : <span>East Medinipur</span></li>
+                            <li class="text-start">Block : <span>kolaghat</span></li>
+                            <li class="text-start">Village + PO : <span>Chapda</span></li>
+                            <li class="text-start">PIN : <span>721154</span></li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

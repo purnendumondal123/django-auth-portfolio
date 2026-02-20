@@ -1,0 +1,146 @@
+.firstSection .leftSection {
+    padding-top: 75px;
+    /* padding-bottom: 20%; */
+}
+
+.fSectionrow {
+    display: flex;
+    flex-direction: row;
+}
+
+.rightSection img {
+    margin-top: 4px;
+    margin-left: 20%;
+    width: 300px;
+}
+
+.section2 {
+    width: 100%;
+    height: 300px;
+}
+
+.line {
+    border: 2px solid red;
+    border-radius: 5px;
+    margin: 30px auto;
+    width: 90%;
+    height: 5px;
+    background-color: yellow;
+}
+
+.row1 {
+    width: 90%;
+    border: 1px solid white;
+    background-color: white;
+    height: 1px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    left: 30px;
+    margin-top: 10px;
+}
+
+.row1 .skil {
+    position: relative;
+    top: 40px;
+    right: 17px;
+    width: 40px;
+    height: 40px;
+}
+
+.row1 .htmlname{
+    width: 100px;
+    position: relative; 
+    right: 20px;
+}
+
+.row1>div {
+    width: 1px;
+    height: 40px;
+    border: 1px solid white;
+    background-color: white;
+}
+
+/* .about-flax {
+    display: flex;
+    flex-direction: row-reverse
+} */
+
+.fcol {
+    height: 300px;
+}
+
+.fcol li {
+    list-style: none;
+}
+
+.fcol>div {
+    margin: 20px 0 0 50px;
+}
+
+.scol {
+    height: 300px;
+}
+
+.scol img {
+    margin-left: 70px;
+    border-radius: 5px;
+}
+
+.fcol table,
+td,
+th {
+    border: 2px solid red;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-section2 table,
+td,
+th {
+    margin: 0 auto;
+    padding: 0 5px;
+}
+
+
+.about-section2 {
+    height: 150px;
+}
+
+
+/* .contactcol{
+    width: 500px;
+} */
+.contact{
+    text-align: center;
+}
+
+.contact li{
+    list-style: none;
+}
+
+.contact h3{
+    position: relative;
+    right: 50px;
+}
+
+.address li{
+    padding-left: 45%;
+}
+
+@media(max-width:767.5px) {
+    .fSectionrow {
+        flex-direction: column-reverse;
+    }
+    .rightSection{
+        margin-top: 10px;
+    }
+    .firstSection .leftSection {
+        padding-bottom: 15%;
+        padding-top: 10px;
+    }
+    .skilnone{
+        display: none;
+    }
+
+}

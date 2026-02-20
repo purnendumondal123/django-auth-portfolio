@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} OTP side {% endblock %}
+
+{% block content %}
+            <form method="post" action="">
+                {% csrf_token %}
+                <h1 style='margin-bottom: 15px;'>OTP Here</h1>
+                    <div class='passmsg alert alert-{{class}}'>
+                        {{message}}
+                    </div>
+                    <p class='passmsg alert alert-{{class}}' style='display:{{display}}'>OTP <span style="font-size:10px;">is not valid {{email}} </span></p>
+                    
+                    <label for='otp' style="display:inline;">OTP</label>
+                    <input style="display:inline; width: 75%; background:white; color:black;" type='text' name="otp" id='otp' placeholder='Enter OTP'>
+
+                    <button type='submit' style="font-weight: bold;" class='button my-4 ml-3 w-50 bg-primary btn text-white'>Submit</button>
+                </table>
+            </form>
+
+{% endblock %}
