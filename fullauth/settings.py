@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 from environ import Env
 
@@ -30,10 +31,12 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT=='development':
     DEBUG = True
-    ALLOWED_HOSTS = ['localhost','127.0.0.1']
+    # ALLOWED_HOSTS = ['localhost','127.0.0.1']
+    ALLOWED_HOSTS = ['*']
 else:
     DEBUG=False
-    ALLOWED_HOSTS = ['protfo', 'www.protfo.com']
+    # ALLOWED_HOSTS = ['protfo', 'www.protfo.com']
+    ALLOWED_HOSTS = ['*']
     
 
 # Application definition
@@ -96,6 +99,10 @@ DATABASES = {
         'PORT': env('DB_PORT'),
     }
 }
+
+POSTGRES_LOCALLY = False
+if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
+    DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'))
 
 
 # Password validation
