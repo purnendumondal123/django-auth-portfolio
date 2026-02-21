@@ -8,6 +8,7 @@ from fullauth.settings import EMAIL_HOST_USER
 import random
 from django.contrib import messages 
 from . forms import CaptchaForm
+from django.conf import settings
 
 
 # Create your views here.
@@ -70,11 +71,16 @@ def otp_verify(request):
 
 
 def login_user(request):
+    base_context = {
+        'RECAPTCHA_PUBLIC_KEY': settings.RECAPTCHA_PUBLIC_KEY
+    }
+    
     if request.method=="POST":
         captcha_form = CaptchaForm(request.POST)
         
         if not captcha_form.is_valid():
             return render(request, 'login.html', {
+                **base_context,
                 'captcha_message': 'Captcha failed',
                 'captcha_class': 'danger',
                 'captcha_display': 'block'})
@@ -85,7 +91,7 @@ def login_user(request):
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
-            return render(request,'login.html',{'message':'User does not exist', 'class':'danger', 'display':'block'})
+            return render(request,'login.html',{**base_context,'message':'User does not exist', 'class':'danger', 'display':'block'})
         
         user_auth= authenticate(request, username= user.username, password=password)
 
@@ -93,8 +99,8 @@ def login_user(request):
             login(request, user_auth)
             return redirect('/protfo/')
         else:
-            return render(request, 'login.html',{'email_message':'Invalid Pasword', 'email_class':'danger','email_display':'block','email': email})
-    return render(request, 'login.html')
+            return render(request, 'login.html',{**base_context,'email_message':'Invalid Pasword', 'email_class':'danger','email_display':'block','email': email})
+    return render(request, 'login.html', base_context)
 
 
 def logout_user(request):
