@@ -24,6 +24,9 @@ def Register(request):
                 return render(request, 'register.html',{'msg':'Email already used', 'color':'danger', 'disp_email':'block', 'name':name})
 
             otp = random.randint(1000,9999)
+            
+            TempUser.objects.filter(email=email).delete()
+            
             TempUser.objects.create(name=name, email=email, password=pass1, otp=otp)
 
             try:
@@ -40,11 +43,13 @@ def Register(request):
                 mail.send()
 
             except Exception as e:
+                print('main error: ', e)
                 return render(request, 'register.html', {
                     'msg': f'Mail sending failed: {e}',
                     'color': 'danger',
-                    'disp_email':'block'
+                    'disp_email':'block',
                 })
+                
 
             request.session['email'] = email
             return redirect('otp')
