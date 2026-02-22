@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.core.mail import send_mail
+from django.core.mail import get_connection, EmailMessage
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import TempUser
@@ -26,14 +26,29 @@ def Register(request):
             otp = random.randint(1000,9999)
             TempUser.objects.create(name=name, email=email, password=pass1, otp=otp)
 
-            send_mail(
-                subject='Your OTP code',
-                message=f'Your OTP is {otp}',
-                from_email= EMAIL_HOST_USER,
-                recipient_list=[email]
-            )
-            request.session['email']= email
+            try:
+                connection = get_connection(timeout=10)
+
+                mail = EmailMessage(
+                    subject='Your OTP code',
+                    body=f'Your OTP is {otp}',
+                    from_email=settings.DEFAULT_FROM_EMAIL,  # ✅ FIXED
+                    to=[email],
+                    connection=connection
+                )
+
+                mail.send()
+
+            except Exception as e:
+                return render(request, 'register.html', {
+                    'msg': f'Mail sending failed: {e}',
+                    'color': 'danger'
+                })
+            # 🔥 FIXED PART END
+
+            request.session['email'] = email
             return redirect('otp')
+
         else:
             context ={
                 'pasmsg':"Confirm-Password is not match",
