@@ -32,7 +32,7 @@ def Register(request):
                 mail = EmailMessage(
                     subject='Your OTP code',
                     body=f'Your OTP is {otp}',
-                    from_email=settings.DEFAULT_FROM_EMAIL,  # ✅ FIXED
+                    from_email=settings.DEFAULT_FROM_EMAIL, 
                     to=[email],
                     connection=connection
                 )
@@ -44,7 +44,6 @@ def Register(request):
                     'msg': f'Mail sending failed: {e}',
                     'color': 'danger'
                 })
-            # 🔥 FIXED PART END
 
             request.session['email'] = email
             return redirect('otp')
