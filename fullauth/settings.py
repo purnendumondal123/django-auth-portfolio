@@ -30,25 +30,29 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT == 'development':
+    
     DEBUG = True
     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+    SECURE_SSL_REDIRECT = False
+
 else:
+
     DEBUG = False
-    ALLOWED_HOSTS = [
-        'purnendu-portfolio.onrender.com',
+    ALLOWED_HOSTS = ['purnendu-portfolio.onrender.com']
+
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    CSRF_TRUSTED_ORIGINS = [
+        "https://purnendu-portfolio.onrender.com",
     ]
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://purnendu-portfolio.onrender.com",
-]
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-    
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-SECURE_SSL_REDIRECT = True
 
 # Application definition
 
