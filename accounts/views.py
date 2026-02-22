@@ -42,7 +42,8 @@ def Register(request):
             except Exception as e:
                 return render(request, 'register.html', {
                     'msg': f'Mail sending failed: {e}',
-                    'color': 'danger'
+                    'color': 'danger',
+                    'disp_email':'block'
                 })
 
             request.session['email'] = email
