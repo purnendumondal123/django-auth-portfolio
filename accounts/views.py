@@ -9,6 +9,31 @@ import random
 from django.contrib import messages 
 from . forms import CaptchaForm
 from django.conf import settings
+import requests
+
+
+def send_otp_email(to_email, otp):
+    
+    url = "https://api.brevo.com/v3/smtp/email"
+
+    headers = {
+        "accept": "application/json",
+        "api-key": settings.BREVO_API_KEY,
+        "content-type": "application/json"
+    }
+
+    data = {
+        "sender": {
+            "name": "Purnendu Portfolio",
+            "email": "purnendu.india123@gmail.com"  # Brevo verified sender
+        },
+        "to": [{"email": to_email}],
+        "subject": "Your OTP Code",
+        "htmlContent": f"<h2>Your OTP is: {otp}</h2>"
+    }
+
+    response = requests.post(url, json=data, headers=headers)
+    return response.status_code
 
 
 # Create your views here.
@@ -29,27 +54,31 @@ def Register(request):
             
             TempUser.objects.create(name=name, email=email, password=pass1, otp=otp)
 
+
+            # Brevo OTP Send
             try:
-                connection = get_connection(timeout=10)
+                # connection = get_connection(timeout=10)
 
-                mail = EmailMessage(
-                    subject='Your OTP code',
-                    body=f'Your OTP is {otp}',
-                    from_email=settings.DEFAULT_FROM_EMAIL, 
-                    to=[email],
-                    connection=connection
-                )
+                # mail = EmailMessage(
+                #     subject='Your OTP code',
+                #     body=f'Your OTP is {otp}',
+                #     from_email=settings.DEFAULT_FROM_EMAIL, 
+                #     to=[email],
+                #     connection=connection
+                # )
+                # mail.send()
+                status = send_otp_email(email, otp)
 
-                mail.send()
+                if status != 201:
+                    raise Exception("Brevo API failed")
 
             except Exception as e:
-                print('main error: ', e)
-                # return render(request, 'register.html', {
-                #     'msg': f'Mail sending failed: {e}',
-                #     'color': 'danger',
-                #     'disp_email':'block',
-                # })
-                return redirect('otp')
+                print('Brevo error: ', e)
+                return render(request, 'register.html', {
+                    'msg': 'Mail sending failed!',
+                    'color': 'danger',
+                    'disp_email':'block',
+                })
 
             request.session['email'] = email
             return redirect('otp')

@@ -165,22 +165,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True: 
-    EMAIL_BACKEND = env('EMAIL_BACKEND')
-    EMAIL_HOST = env('EMAIL_HOST')
-    EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-    EMAIL_PORT =  env.int('EMAIL_PORT')
-    EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
-    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+    EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
+    
+    # EMAIL_BACKEND = env('EMAIL_BACKEND')
+    # EMAIL_HOST = env('EMAIL_HOST')
+    # EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+    # EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+    # EMAIL_PORT =  env.int('EMAIL_PORT')
+    # EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
+    # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-
-
-
-
-
-# EMAIL_USE_SSL = False
+# Brevo API key
+BREVO_API_KEY = env("BREVO_API_KEY")
 
 
 
