@@ -44,12 +44,12 @@ def Register(request):
 
             except Exception as e:
                 print('main error: ', e)
-                return render(request, 'register.html', {
-                    'msg': f'Mail sending failed: {e}',
-                    'color': 'danger',
-                    'disp_email':'block',
-                })
-                
+                # return render(request, 'register.html', {
+                #     'msg': f'Mail sending failed: {e}',
+                #     'color': 'danger',
+                #     'disp_email':'block',
+                # })
+                return redirect('otp')
 
             request.session['email'] = email
             return redirect('otp')
