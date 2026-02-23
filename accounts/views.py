@@ -4,7 +4,7 @@ from django.core.mail import get_connection, EmailMessage
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import TempUser
-from fullauth.settings import EMAIL_HOST_USER 
+# from fullauth.settings import EMAIL_HOST_USER 
 import random
 from django.contrib import messages 
 from . forms import CaptchaForm
